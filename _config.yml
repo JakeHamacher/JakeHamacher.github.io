@@ -1,11 +1,11 @@
 # Site settings
 # These are used to personalize your new site.
-title: Jake Hamacher# your name here
+title: Jake Hamacher # your name here
 logo: "/images/logo.png?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br /> elements if you don't need line breaks)
   CSCI 496: Senior Portfolio<br />
   In partial fulfillment of the requirements for the degree of
-  Bachelor of Science in Computer-Science (class of 2040)
+  Bachelor of Science in Computer-Science (class of 2025)
   <br /><br />
   <a href="https://example.com/resume">View My Resume</a>
   <br /><br />
