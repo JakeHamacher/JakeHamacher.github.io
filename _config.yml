@@ -1,13 +1,13 @@
 # Site settings
 # These are used to personalize your new site.
 title: Jake Hamacher # your name here
-logo: "/images/logo.png?raw=true" # your photo (or logo) here
+logo: "/images/thumbnail_processed-11B69A2E-043F-48E8-A13B-5A658EBF2258.jpg?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br /> elements if you don't need line breaks)
   CSCI 496: Senior Portfolio<br />
   In partial fulfillment of the requirements for the degree of
-  Bachelor of Science in Computer-Science (class of 2025)
+  Bachelor of Science in Cybersecurity (class of 2025)
   <br /><br />
-  <a href="https://example.com/resume">View My Resume</a>
+  <a href="https://docs.google.com/document/d/14oGK8bUNUHpqs915UHZQuMBbO7ZB9YtTXdGtTnt6YS0/edit?usp=sharing">View My Resume</a>
   <br /><br />
   <a href="https://www.linkedin.com/in/jacob-hamacher-8354a31b5/">View My LinkedIn Profile</a>
 repository: "csci-csu/csci-portfolio"
