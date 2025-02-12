@@ -7,7 +7,7 @@ Programming Projects
 ---
 ### [Project 1 Title | CSCI 301](project1)
 
-![Project 1 Thumbnail Name](images/dummy_thumbnail.jpg)
+![Project 1 Thumbnail Name](images/FotF_pic.PNG)
 
 ---
 ### [Project 2 Title | CSCI 315](project1)
