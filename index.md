@@ -29,10 +29,10 @@ Programming Projects
 Ethics Papers
 -------------
 
-### [Paper 1 Title](/pdf/sample_presentation.pdf)
+### [CSCI 325 - Ethics in Cybersecurity](/pdf/325-Ethics-Paper.pdf)
 
--   **Class:**  
--   **Grade:**
+-   **Class:**  CSCI 325
+-   **Grade:** 100
 
 ### [Paper 2 Title](/pdf/sample_presentation.pdf)
 
@@ -49,16 +49,16 @@ Ethics Papers
 Presentations
 -------------
 
-### [Presentation 1 Title](/pdf/sample_presentation.pdf)
+### [CSU PSEUDOvirus](https://docs.google.com/presentation/d/1x1GSk1e2KhMP33CKT_cJKzAosfteNcpVNVjwaI1KDOU/edit?usp=sharing)
 
-- **Class:** 
-- **Grade:**
+- **Class:** CSCI 405
+- **Grade:** 100
 
 
-### [Presentation 2 Title](/pdf/sample_presentation.pdf)
+### [Application Security](https://www.youtube.com/watch?v=_XjiHC_2IGY)
 
-- **Class:** 
-- **Grade:**
+- **Class:** CSCI 325
+- **Grade:** 100
 
 ---
 
