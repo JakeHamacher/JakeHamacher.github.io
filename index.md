@@ -10,7 +10,7 @@ Programming Projects
 ![Fathers of the Faith - Senior Project | CSCI 497/498/499](images/FotF_pic.PNG)
 
 ---
-### [Applied Networking Final Project | CSCI 332](https://github.com/JakeHamacher/AN-2020-FinalProj)
+### [Applied Networking Final Project | CSCI 332](project2)
 
 ![Applied Networking Final Project | CSCI 332](images/Capture.PNG)
 
