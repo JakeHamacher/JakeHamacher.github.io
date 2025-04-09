@@ -1,6 +1,6 @@
 [Back to Portfolio](./)
 
-Project 2 Title
+Applied Networking Final Project
 ===============
 
 -   **Class:** CSCI 332
