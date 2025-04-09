@@ -15,14 +15,14 @@ Programming Projects
 ![Applied Networking Final Project | CSCI 332](images/Capture.PNG)
 
 ---
-### [Project 3 Title | CSCI 325](project1)
+### [Pentesting Project II | CSCI 325](project3)
 
 ![Pentesting Project II](images/dummy_thumbnail.jpg)
 
 ---
-### [Project 4 Title | CSCI 332](project1)
+### [Database Final Project | CSCI 419](project4)
 
-![Project 4 Thumbnail Name](images/dummy_thumbnail.jpg)
+![Database Final Project](images/dummy_thumbnail.jpg)
 
 ---
 
@@ -34,15 +34,10 @@ Ethics Papers
 -   **Class:**  CSCI 325
 -   **Grade:** 100
 
-### [Paper 2 Title](/pdf/sample_presentation.pdf)
+### [CSCI 325 - Ethics of Meme Culture](/pdf/325-Ethics-Paper.pdf)
 
--   **Class:** 
--   **Grade:**
-
-### [Paper 3 Title](/pdf/sample_presentation.pdf)
-
--   **Class:** 
--   **Grade:**
+-   **Class:**  CSCI 330 (I believe, but I could be wrong)
+-   **Grade:** 100
 
 ---
 
