@@ -34,7 +34,7 @@ Ethics Papers
 -   **Class:**  CSCI 325
 -   **Grade:** 100
 
-### [CSCI 325 - Ethics of Meme Culture](/pdf/325-Ethics-Paper.pdf)
+### [CSCI 325 - Ethics of Meme Culture](/pdf/EthicsPaper.pdf)
 
 -   **Class:**  CSCI 330 (I believe, but I could be wrong)
 -   **Grade:** 100
