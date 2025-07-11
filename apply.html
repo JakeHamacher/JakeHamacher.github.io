@@ -76,64 +76,73 @@
             <div class="container">
             <div class="container">
                 <div class="application-form-container">
-                    <form id="multiStepForm" action="https://formsubmit.co/8a136d6c522a39003c79826ef9686308" method="POST">
-                    <!-- Hidden FormSubmit config -->
-                    <input type="hidden" name="_next" value="thank-you.html">
-                    <input type="hidden" name="_captcha" value="false">
+                    <form id="multiStepForm" class="application-form" action="https://formsubmit.co/8a136d6c522a39003c79826ef9686308" method="POST">
+                        <!-- Hidden FormSubmit config -->
+                        <input type="hidden" name="_next" value="thank-you.html">
+                        <input type="hidden" name="_captcha" value="false">
 
-                    <!-- Step 1 -->
-                    <div class="form-step step-1 active">
-                        <h2>Personal Information</h2>
-                        <label>First Name:
-                        <input type="text" name="first-name" required>
-                        </label>
-                        <label>Last Name:
-                        <input type="text" name="last-name" required>
-                        </label>
-                        <label>Email:
-                        <input type="email" name="email" required>
-                        </label>
-                    </div>
+                        <!-- Step 1 -->
+                        <div class="form-step step-1 active">
+                            <h2>Personal Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" name="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" name="last-name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
 
-                    <!-- Step 2 -->
-                    <div class="form-step step-2">
-                        <h2>Financial Information</h2>
-                        <label>Employment Status:
-                        <select name="employment-status" required>
-                            <option value="">Select</option>
-                            <option value="employed">Employed</option>
-                            <option value="self-employed">Self-Employed</option>
-                            <option value="retired">Retired</option>
-                            <option value="unemployed">Unemployed</option>
-                        </select>
-                        </label>
-                        <label>Annual Income:
-                        <input type="number" name="income" required>
-                        </label>
-                    </div>
+                        <!-- Step 2 -->
+                        <div class="form-step step-2">
+                            <h2>Financial Information</h2>
+                            <div class="form-group">
+                                <label for="employment-status">Employment Status</label>
+                                <select id="employment-status" name="employment-status" required>
+                                    <option value="">Select</option>
+                                    <option value="employed">Employed</option>
+                                    <option value="self-employed">Self-Employed</option>
+                                    <option value="retired">Retired</option>
+                                    <option value="unemployed">Unemployed</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="income">Annual Income</label>
+                                <input type="number" id="income" name="income" required>
+                            </div>
+                        </div>
 
-                    <!-- Step 3 -->
-                    <div class="form-step step-3">
-                        <h2>Property Information</h2>
-                        <label>Property Type:
-                        <select name="property-type" required>
-                            <option value="">Select</option>
-                            <option value="single-family">Single Family</option>
-                            <option value="condo">Condo</option>
-                            <option value="townhouse">Townhouse</option>
-                        </select>
-                        </label>
-                        <label>Estimated Property Value:
-                        <input type="number" name="property-value" required>
-                        </label>
-                    </div>
+                        <!-- Step 3 -->
+                        <div class="form-step step-3">
+                            <h2>Property Information</h2>
+                            <div class="form-group">
+                                <label for="property-type">Property Type</label>
+                                <select id="property-type" name="property-type" required>
+                                    <option value="">Select</option>
+                                    <option value="single-family">Single Family</option>
+                                    <option value="condo">Condo</option>
+                                    <option value="townhouse">Townhouse</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="property-value">Estimated Property Value</label>
+                                <input type="number" id="property-value" name="property-value" required>
+                            </div>
+                        </div>
 
-                    <!-- Navigation Buttons -->
-                    <div class="form-navigation">
-                        <button type="button" id="prevBtn">Back</button>
-                        <button type="button" id="nextBtn">Next</button>
-                        <button type="submit" id="submitBtn" style="display:none;">Submit Application</button>
-                    </div>
+                        <!-- Navigation Buttons -->
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="prevBtn">Back</button>
+                            <button type="button" class="btn" id="nextBtn">Next</button>
+                            <button type="submit" class="btn" id="submitBtn" style="display:none;">Submit Application</button>
+                        </div>
                     </form>
 
                     
