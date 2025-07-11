@@ -80,8 +80,18 @@ img {
 }
 
 .btn-small {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     font-size: 0.9rem;
+    margin-top: auto;
+    align-self: center;
+}
+
+.btn {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .btn-secondary {
@@ -231,8 +241,36 @@ img {
 .value-item {
     padding: 2rem;
     border-radius: var(--border-radius);
-    background-color: var(--secondary-color);
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
     transition: var(--transition);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.value-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.value-item p {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.value-item ul,
+.service-card ul {
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.value-item li,
+.service-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
 }
 
 .value-item:hover {
@@ -311,8 +349,23 @@ img {
 .service-card {
     padding: 2rem;
     border-radius: var(--border-radius);
-    background-color: var(--secondary-color);
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
     transition: var(--transition);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.service-card p {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
 }
 
 .service-card:hover {
