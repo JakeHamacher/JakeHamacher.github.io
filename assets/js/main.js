@@ -44,6 +44,88 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
 
-    // Form validation would go here
-    // Google Analytics event tracking would go here
+    // Multi-step form functionality
+    const applicationForm = document.querySelector('.application-form');
+    if (applicationForm) {
+        let currentStep = 1;
+        const totalSteps = 4;
+        
+        // Next step button
+        applicationForm.addEventListener('click', function(e) {
+            if (e.target.classList.contains('next-step')) {
+                e.preventDefault();
+                if (validateCurrentStep(currentStep)) {
+                    currentStep++;
+                    updateFormDisplay();
+                    updateProgress();
+                }
+            }
+            
+            // Previous step button
+            if (e.target.classList.contains('prev-step')) {
+                e.preventDefault();
+                currentStep--;
+                updateFormDisplay();
+                updateProgress();
+            }
+        });
+
+        // Form submission
+        applicationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateCurrentStep(currentStep) && currentStep === totalSteps) {
+                // Final submission
+                const formData = new FormData(applicationForm);
+                console.log('Form data:', Object.fromEntries(formData));
+                alert('Application submitted successfully!');
+                // Here you would typically send data to server
+            }
+        });
+
+        function validateCurrentStep(step) {
+            let isValid = true;
+            const currentStepFields = applicationForm.querySelectorAll(`.step-${step} [required]`);
+            
+            currentStepFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+
+            if (!isValid) {
+                alert('Please fill in all required fields');
+            }
+
+            return isValid;
+        }
+
+        function updateFormDisplay() {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            // Show current step
+            document.querySelector(`.step-${currentStep}`).classList.add('active');
+        }
+
+        function updateProgress() {
+            // Update progress bar
+            const progressPercent = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            document.querySelector('.progress-fill').style.width = `${progressPercent}%`;
+            
+            // Update step indicators
+            document.querySelectorAll('.step').forEach((step, index) => {
+                if (index < currentStep) {
+                    step.classList.add('completed');
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('completed');
+                    step.classList.remove('active');
+                }
+            });
+        }
+    }
 });

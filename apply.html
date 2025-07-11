@@ -76,57 +76,131 @@
             <div class="container">
             <div class="container">
                 <div class="application-form-container">
-                    <form class="application-form">
-                        <h2>Tell us about yourself</h2>
-                        <p class="form-intro">We'll use this information to get you the best mortgage options.</p>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="first-name">First Name</label>
-                                <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+                    <form class="application-form" id="application-form">
+                        <!-- Step 1 -->
+                        <div class="form-step step-1 active">
+                            <h2>Personal Information</h2>
+                            <p class="form-intro">We'll use this information to get you the best mortgage options.</p>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="last-name">Last Name</label>
-                                <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="loan-purpose">Loan Purpose</label>
+                                    <select id="loan-purpose" name="loan-purpose" required>
+                                        <option value="">Select loan purpose</option>
+                                        <option value="purchase">Home Purchase</option>
+                                        <option value="refinance">Refinance</option>
+                                        <option value="home-equity">Home Equity Loan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="credit-range">Credit Score Range</label>
+                                    <select id="credit-range" name="credit-range" required>
+                                        <option value="">Select your credit range</option>
+                                        <option value="excellent">720+ (Excellent)</option>
+                                        <option value="good">680-719 (Good)</option>
+                                        <option value="fair">620-679 (Fair)</option>
+                                        <option value="poor">Below 620 (Poor)</option>
+                                        <option value="unknown">I don't know</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-large next-step">Continue to Step 2</button>
                             </div>
                         </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+
+                        <!-- Step 2 -->
+                        <div class="form-step step-2">
+                            <h2>Financial Information</h2>
+                            <p class="form-intro">Please provide details about your financial situation.</p>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="employment-status">Employment Status</label>
+                                    <select id="employment-status" name="employment-status" required>
+                                        <option value="">Select employment status</option>
+                                        <option value="employed">Employed</option>
+                                        <option value="self-employed">Self-Employed</option>
+                                        <option value="retired">Retired</option>
+                                        <option value="unemployed">Unemployed</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="annual-income">Annual Income ($)</label>
+                                    <input type="number" id="annual-income" name="annual-income" placeholder="e.g. 75000" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="loan-purpose">Loan Purpose</label>
-                                <select id="loan-purpose" name="loan-purpose" required>
-                                    <option value="">Select loan purpose</option>
-                                    <option value="purchase">Home Purchase</option>
-                                    <option value="refinance">Refinance</option>
-                                    <option value="home-equity">Home Equity Loan</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="credit-range">Credit Score Range</label>
-                                <select id="credit-range" name="credit-range" required>
-                                    <option value="">Select your credit range</option>
-                                    <option value="excellent">720+ (Excellent)</option>
-                                    <option value="good">680-719 (Good)</option>
-                                    <option value="fair">620-679 (Fair)</option>
-                                    <option value="poor">Below 620 (Poor)</option>
-                                    <option value="unknown">I don't know</option>
-                                </select>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary prev-step">Back</button>
+                                <button type="button" class="btn btn-large next-step">Continue to Step 3</button>
                             </div>
                         </div>
-                        
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-large">Continue to Step 2</button>
+
+                        <!-- Step 3 -->
+                        <div class="form-step step-3">
+                            <h2>Property Information</h2>
+                            <p class="form-intro">Tell us about the property you're interested in.</p>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="property-type">Property Type</label>
+                                    <select id="property-type" name="property-type" required>
+                                        <option value="">Select property type</option>
+                                        <option value="single-family">Single Family Home</option>
+                                        <option value="condo">Condo</option>
+                                        <option value="townhouse">Townhouse</option>
+                                        <option value="multi-family">Multi-Family</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="property-value">Estimated Property Value ($)</label>
+                                    <input type="number" id="property-value" name="property-value" placeholder="e.g. 350000" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary prev-step">Back</button>
+                                <button type="button" class="btn btn-large next-step">Continue to Step 4</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="form-step step-4">
+                            <h2>Review Your Application</h2>
+                            <p class="form-intro">Please review your information before submitting.</p>
+                            
+                            <div id="review-summary" class="review-summary">
+                                <!-- Summary will be populated by JavaScript -->
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary prev-step">Back</button>
+                                <button type="submit" class="btn btn-large">Submit Application</button>
+                            </div>
                         </div>
                     </form>
                     
