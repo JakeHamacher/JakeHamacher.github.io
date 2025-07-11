@@ -358,6 +358,29 @@ img {
     flex-direction: column;
 }
 
+.service-card ul {
+    margin-bottom: 1.5rem;
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.service-card li {
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.service-card li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
 .service-card h3 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
