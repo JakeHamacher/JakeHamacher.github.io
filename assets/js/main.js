@@ -101,11 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Form submission
         applicationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(applicationForm);
-            console.log('Form data:', Object.fromEntries(formData));
-            alert('Application submitted successfully!');
-            // Here you would typically send data to server
+            // Let the form submit naturally to FormSubmit
+            // No need for preventDefault() or manual handling
+            console.log('Form submitted to FormSubmit');
         });
 
         // Initialize form
