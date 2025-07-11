@@ -76,12 +76,6 @@
             <div class="container">
             <div class="container">
                 <div class="application-form-container">
-                    <form action="https://formsubmit.co/8a136d6c522a39003c79826ef9686308 " method="POST">
-                        <input type="text" name="name" placeholder="Name" required>
-                        <input type="email" name="email" placeholder="Email" required>
-                        <button type="submit">Send</button>
-                    </form>
-
                     <form id="multiStepForm" action="https://formsubmit.co/8a136d6c522a39003c79826ef9686308" method="POST">
                     <!-- Hidden FormSubmit config -->
                     <input type="hidden" name="_next" value="thank-you.html">
@@ -211,5 +205,38 @@
         </div>
     </footer>
     <script src="assets/js/main.js"></script>
+    <script>
+  const steps = document.querySelectorAll('.form-step');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => step.classList.toggle('active', i === index));
+    prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+    nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+    submitBtn.style.display = index === steps.length - 1 ? 'inline-block' : 'none';
+  }
+
+  nextBtn.addEventListener('click', () => {
+    const inputs = steps[currentStep].querySelectorAll('input, select');
+    const valid = Array.from(inputs).every(input => input.checkValidity());
+    if (valid) {
+      currentStep++;
+      showStep(currentStep);
+    } else {
+      inputs.forEach(input => input.reportValidity());
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentStep--;
+    showStep(currentStep);
+  });
+
+  showStep(currentStep);
+</script>
+
 </body>
 </html>
