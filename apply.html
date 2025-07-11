@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Start your mortgage application with YOURCOMPANYNAME today.">
+    <title>Apply Now | YOURCOMPANYNAME</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- Header same as about.html -->
+
+    <main id="main-content">
+        <!-- Application Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Start Your Application</h1>
+                    <p class="subtitle">Get pre-approved in as little as 24 hours.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Steps -->
+        <section class="value-prop">
+            <div class="container">
+                <div class="progress-steps">
+                    <div class="step active">
+                        <span>1</span>
+                        <p>Personal Info</p>
+                    </div>
+                    <div class="step">
+                        <span>2</span>
+                        <p>Financial Info</p>
+                    </div>
+                    <div class="step">
+                        <span>3</span>
+                        <p>Property Info</p>
+                    </div>
+                    <div class="step">
+                        <span>4</span>
+                        <p>Review & Submit</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="services-overview">
+            <div class="container">
+                <div class="service-card">
+                    <h2>Personal Information</h2>
+                    <form class="application-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="loan-purpose">Loan Purpose</label>
+                            <select id="loan-purpose" name="loan-purpose" required>
+                                <option value="">Select One</option>
+                                <option value="purchase">Home Purchase</option>
+                                <option value="refinance">Refinance</option>
+                                <option value="home-equity">Home Equity Loan</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="credit-range">Credit Score Range</label>
+                            <select id="credit-range" name="credit-range" required>
+                                <option value="">Select One</option>
+                                <option value="excellent">720+ (Excellent)</option>
+                                <option value="good">680-719 (Good)</option>
+                                <option value="fair">620-679 (Fair)</option>
+                                <option value="poor">Below 620 (Poor)</option>
+                                <option value="unknown">I don't know</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Continue to Step 2</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="service-card">
+                    <h3>What You'll Need</h3>
+                    <p>To complete your application, please have ready:</p>
+                    <ul>
+                        <li>Social Security Number</li>
+                        <li>Employment history (2 years)</li>
+                        <li>Income documentation (pay stubs, W-2s)</li>
+                        <li>Asset information (bank statements)</li>
+                        <li>Property details (if already identified)</li>
+                    </ul>
+                    <p>Need help? Call us at (555) 123-4567</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer same as index.html -->
+</body>
+</html>
