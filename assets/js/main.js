@@ -47,40 +47,69 @@ document.addEventListener('DOMContentLoaded', function() {
     // Multi-step form functionality
     const applicationForm = document.querySelector('.application-form');
     if (applicationForm) {
-        let currentStep = 1;
-        const totalSteps = 4;
-        
-        // Next step button
-        applicationForm.addEventListener('click', function(e) {
-            if (e.target.classList.contains('next-step')) {
-                e.preventDefault();
-                if (validateCurrentStep(currentStep)) {
-                    currentStep++;
-                    updateFormDisplay();
-                    updateProgress();
-                }
-            }
+        const steps = document.querySelectorAll('.form-step');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        let currentStep = 0;
+
+        function showStep(index) {
+            // Update step visibility
+            steps.forEach((step, i) => {
+                step.classList.toggle('active', i === index);
+            });
             
-            // Previous step button
-            if (e.target.classList.contains('prev-step')) {
-                e.preventDefault();
-                currentStep--;
-                updateFormDisplay();
-                updateProgress();
+            // Update button visibility
+            prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+            nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+            submitBtn.style.display = index === steps.length - 1 ? 'inline-block' : 'none';
+            
+            // Update progress bar
+            const progressPercent = ((index) / (steps.length - 1)) * 100;
+            document.querySelector('.progress-fill').style.width = `${progressPercent}%`;
+            
+            // Update step indicators
+            document.querySelectorAll('.step').forEach((step, i) => {
+                if (i <= index) {
+                    step.classList.add('completed');
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('completed');
+                    step.classList.remove('active');
+                }
+            });
+        }
+
+        // Next button handler
+        nextBtn.addEventListener('click', () => {
+            const inputs = steps[currentStep].querySelectorAll('input, select');
+            const valid = Array.from(inputs).every(input => input.checkValidity());
+            
+            if (valid) {
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                inputs.forEach(input => input.reportValidity());
             }
+        });
+
+        // Previous button handler
+        prevBtn.addEventListener('click', () => {
+            currentStep--;
+            showStep(currentStep);
         });
 
         // Form submission
         applicationForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            if (validateCurrentStep(currentStep) && currentStep === totalSteps) {
-                // Final submission
-                const formData = new FormData(applicationForm);
-                console.log('Form data:', Object.fromEntries(formData));
-                alert('Application submitted successfully!');
-                // Here you would typically send data to server
-            }
+            const formData = new FormData(applicationForm);
+            console.log('Form data:', Object.fromEntries(formData));
+            alert('Application submitted successfully!');
+            // Here you would typically send data to server
         });
+
+        // Initialize form
+        showStep(currentStep);
 
         function validateCurrentStep(step) {
             let isValid = true;
