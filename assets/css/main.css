@@ -60,7 +60,7 @@ img {
 
 .btn {
     display: inline-block;
-    padding: 0.75rem 2rem;
+    padding: 1rem !important;
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
@@ -93,6 +93,8 @@ img {
 }
 
 .btn-secondary {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
     background-color: var(--accent-color);
     color: var(--white);
 }
@@ -131,6 +133,8 @@ img {
 }
 
 .main-nav li {
+    display: flex;
+    align-items: center;
     margin-left: 1.5rem;
 }
 
@@ -178,7 +182,7 @@ img {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/hero-bg.jpg') no-repeat center center/cover;
     color: var(--white);
     padding: 8rem 0 6rem;
     text-align: center;
@@ -557,6 +561,7 @@ img {
     transition: var(--transition);
     text-align: left;
     height: 100%;
+    margin: 2rem;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--gray-medium);
