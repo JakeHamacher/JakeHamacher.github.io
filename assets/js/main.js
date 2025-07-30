@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const loanTerm = parseFloat(document.getElementById('loanTerm').value) || 0;
             const propertyTax = parseFloat(document.getElementById('propertyTax').value) || 0;
             const homeInsurance = parseFloat(document.getElementById('homeInsurance').value) || 0;
+            const loanType = document.getElementById('loanType').value;
         
             // Validate inputs
             if (loanAmount <= 0 || interestRate <= 0 || loanTerm <= 0) {
@@ -62,9 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="payment-breakdown">Principal & Interest: <strong>$${mortgagePayment.toFixed(2)}</strong></p>
                 <p class="payment-breakdown">Property Tax: <strong>$${monthlyTax.toFixed(2)}</strong></p>
                 <p class="payment-breakdown">Home Insurance: <strong>$${monthlyInsurance.toFixed(2)}</strong></p>
-                <p class="payment-total">Total: <strong>$${totalPayment.toFixed(2)}</strong></p>
+                <p class="payment-total">Total Payment: <strong>$${totalPayment.toFixed(2)}</strong></p>
+                <p class="loan-type">Loan Type: <strong>${document.querySelector('#loanType option:checked').textContent}</strong></p>
             `;
             resultDiv.style.display = 'block';
+            
+            // Scroll to results
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
     }
 

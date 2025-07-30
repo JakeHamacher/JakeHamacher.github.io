@@ -747,6 +747,105 @@ img {
     margin-bottom: 0.5rem;
 }
 
+/* Calculator Section */
+.calculator-section {
+    padding: 4rem 0;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .calculator-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.calculator-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--gray-medium);
+}
+
+.calculator-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.calculator-info {
+    background: var(--secondary-color);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--gray-medium);
+}
+
+.calculator-info-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.calculator-info-content ul {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.calculator-info-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.calculator-tip {
+    background: rgba(255, 107, 53, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.calculator-result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    display: none;
+}
+
+.calculator-result h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.payment-breakdown {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-total {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-medium);
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loan-type {
+    margin-top: 1rem;
+    font-style: italic;
+    text-align: center;
+}
+
 /* Floating CTA */
 .floating-cta {
     position: fixed;
