@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mortgage calculators at Integrity First Home Loan">
+    <title>Calculators | Integrity First Home Loan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Integrity First Home Loan</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="loans.html">Loan Options</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li class="nav-cta"><a href="apply.html" class="btn">Apply Now</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Mobile menu toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Mortgage Calculators</h1>
+                    <p class="subtitle">Make informed decisions with our financial tools</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="application-section">
+            <div class="container">
+                <div class="calculator-container">
+                    <div class="calculator-form">
+                        <h2>Monthly Payment Calculator</h2>
+                        <form id="paymentCalculator">
+                            <div class="form-group">
+                                <label for="loanAmount">Loan Amount ($)</label>
+                                <input type="number" id="loanAmount" min="0" step="1000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="interestRate">Interest Rate (%)</label>
+                                <input type="number" id="interestRate" min="0" max="20" step="0.125" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term (years)</label>
+                                <input type="number" id="loanTerm" min="1" max="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="propertyTax">Annual Property Tax ($)</label>
+                                <input type="number" id="propertyTax" min="0" step="100">
+                            </div>
+                            <div class="form-group">
+                                <label for="homeInsurance">Annual Home Insurance ($)</label>
+                                <input type="number" id="homeInsurance" min="0" step="100">
+                            </div>
+                            <button type="submit" class="btn">Calculate Payment</button>
+                        </form>
+                        <div id="calculatorResult" class="calculator-result" aria-live="polite"></div>
+                    </div>
+                    <div class="calculator-info">
+                        <h3>How It Works</h3>
+                        <p>Our calculator helps you estimate your monthly mortgage payment based on:</p>
+                        <ul>
+                            <li>Loan amount</li>
+                            <li>Interest rate</li>
+                            <li>Loan term</li>
+                            <li>Property taxes</li>
+                            <li>Home insurance</li>
+                        </ul>
+                        <p>For personalized advice, <a href="apply.html">apply for pre-approval</a> or call us at <strong>(571) 330-6269</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Integrity First Home Loan</h3>
+                    <div class="footer-contact">
+                        <p>123 Main Street<br>Anytown, ST 12345</p>
+                        <p>Phone: (571) 330-6269<br>Email: info@integrityfirst.com</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="loans.html">Loan Options</a></li>
+                        <li><a href="calculators.html">Calculators</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Compliance</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="licensing.html">Licensing</a></li>
+                        <li><a href="accessibility.html">Accessibility Statement</a></li>
+                        <li><a href="disclosures.html">Disclosures</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><span>FB</span></a>
+                        <a href="#" aria-label="LinkedIn"><span>LI</span></a>
+                        <a href="#" aria-label="Twitter"><span>TW</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Integrity First Home Loan. All rights reserved. | NMLS #123456 | Equal Housing Lender</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

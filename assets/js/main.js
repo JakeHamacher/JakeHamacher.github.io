@@ -24,24 +24,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize testimonial carousel (placeholder - would use a library like Slick in production)
-    // This is a simple implementation for demo purposes
-    const testimonials = document.querySelectorAll('.testimonial');
-    if (testimonials.length > 1) {
-        let currentTestimonial = 0;
+    // Mortgage calculator functionality
+    const paymentCalculator = document.getElementById('paymentCalculator');
+    if (paymentCalculator) {
+        paymentCalculator.addEventListener('submit', function(e) {
+            e.preventDefault();
         
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.style.display = i === index ? 'block' : 'none';
-            });
-        }
+            // Get input values
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const loanTerm = parseFloat(document.getElementById('loanTerm').value) || 0;
+            const propertyTax = parseFloat(document.getElementById('propertyTax').value) || 0;
+            const homeInsurance = parseFloat(document.getElementById('homeInsurance').value) || 0;
         
-        showTestimonial(0);
+            // Validate inputs
+            if (loanAmount <= 0 || interestRate <= 0 || loanTerm <= 0) {
+                alert('Please enter valid values for loan amount, interest rate, and loan term.');
+                return;
+            }
         
-        setInterval(() => {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }, 5000);
+            // Calculate monthly payment
+            const monthlyRate = interestRate / 100 / 12;
+            const termMonths = loanTerm * 12;
+            const mortgagePayment = loanAmount * monthlyRate * 
+                Math.pow(1 + monthlyRate, termMonths) / 
+                (Math.pow(1 + monthlyRate, termMonths) - 1);
+        
+            // Calculate additional monthly costs
+            const monthlyTax = propertyTax / 12;
+            const monthlyInsurance = homeInsurance / 12;
+            const totalPayment = mortgagePayment + monthlyTax + monthlyInsurance;
+        
+            // Format and display results
+            const resultDiv = document.getElementById('calculatorResult');
+            resultDiv.innerHTML = `
+                <h3>Estimated Monthly Payment</h3>
+                <p class="payment-breakdown">Principal & Interest: <strong>$${mortgagePayment.toFixed(2)}</strong></p>
+                <p class="payment-breakdown">Property Tax: <strong>$${monthlyTax.toFixed(2)}</strong></p>
+                <p class="payment-breakdown">Home Insurance: <strong>$${monthlyInsurance.toFixed(2)}</strong></p>
+                <p class="payment-total">Total: <strong>$${totalPayment.toFixed(2)}</strong></p>
+            `;
+            resultDiv.style.display = 'block';
+        });
     }
 
     // Multi-step form functionality
