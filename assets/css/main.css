@@ -749,7 +749,8 @@ img {
 
 /* Calculator Section */
 .calculator-section {
-    padding: 4rem 0;
+  padding: 4rem 1rem;
+  width: 100%;
 }
 
 .calculator-container {
