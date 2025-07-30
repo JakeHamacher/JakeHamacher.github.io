@@ -60,7 +60,7 @@ img {
 
 .btn {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 2rem;
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
@@ -69,42 +69,37 @@ img {
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    letter-spacing: 0.5px;
 }
 
 .btn:hover {
-    background-color: var(--primary-light);
+    background-color: var(--primary-dark);
     color: var(--white);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .btn-large {
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     font-size: 1.1rem;
 }
 
 .btn-small {
     padding: 0.5rem 1.5rem;
     font-size: 0.9rem;
-    margin-top: auto;
-    align-self: center;
-}
-
-.btn {
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.btn:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    margin-top: 1.5rem;
+    align-self: flex-start;
 }
 
 .btn-secondary {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background-color: var(--accent-color);
+    color: var(--white);
 }
 
 .btn-secondary:hover {
-    background-color: var(--gray-light);
-    color: var(--text-color);
+    background-color: var(--accent-dark);
+    color: var(--white);
 }
 
 /* Header Styles */
