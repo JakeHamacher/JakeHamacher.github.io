@@ -1,0 +1,91 @@
+<div id="header-placeholder"></div>
+
+    <main id="main-content">
+        <!-- Contact Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>We're Here to Help</h1>
+                    <p class="subtitle">Contact our team for personalized mortgage assistance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="services-overview">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h2>Send Us a Message</h2>
+                        <form class="contact-form" action="https://formsubmit.co/jacobhhamacher@gmail.com" method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Email: TODO@TODO.com">Email: TODO@TODO.com</label>
+                                <input type="Email: TODO@TODO.com" id="Email: TODO@TODO.com" name="Email: TODO@TODO.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="purchase">Home Purchase</option>
+                                    <option value="refinance">Refinance</option>
+                                    <option value="application">Application Status</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="service-card">
+                        <h2>Contact Information</h2>
+                        <div class="footer-contact">
+                            <p><strong>Address:</strong><br>
+                            123 Main Street<br>
+                            Anytown, ST 12345</p>
+                            
+                            <p><strong>Phone:</strong><br>
+                            (571) 330-6269</p>
+                            
+                            <p><strong>Email: TODO@TODO.com:</strong><br>
+                            info@yourcompany.com</p>
+                            
+                            <p><strong>Hours:</strong><br>
+                            Monday-Friday: 9am-5pm<br>
+                            Saturday: 10am-2pm</p>
+                        </div>
+                        
+                        <h3>Location</h3>
+                        <div class="map-placeholder">
+                            <!-- Would be replaced with actual map embed -->
+                            <img src="https://maps.googleapis.com/maps/api/staticmap?center=123+Main+Street+Anytown+ST&zoom=14&size=600x300&maptype=roadmap" alt="Map of our location">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('/templates/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+        fetch('/templates/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>

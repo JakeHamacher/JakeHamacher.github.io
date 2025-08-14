@@ -1,0 +1,67 @@
+<div id="header-placeholder"></div>
+
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Mortgage Loan Options</h1>
+                    <p class="subtitle">Find the right solution for your home financing needs</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-overview">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Conventional Loans</h3>
+                        <ul>
+                            <li>Fixed and adjustable rate options</li>
+                            <li>Down payments starting at just 3%</li>
+                            <li>No mortgage insurance required with 20% down</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>FHA Loans</h3>
+                        <ul>
+                            <li>Credit scores as low as 580 accepted</li>
+                            <li>Down payments as low as 3.5%</li>
+                            <li>Flexible qualification guidelines</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>VA Loans</h3>
+                        <ul>
+                            <li>No down payment required</li>
+                            <li>No private mortgage insurance (PMI)</li>
+                            <li>Available for veterans and active service members</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Jumbo Loans</h3>
+                        <ul>
+                            <li>For higher-value property purchases</li>
+                            <li>Competitive interest rates available</li>
+                            <li>Flexible terms to meet your needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('/templates/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+        fetch('/templates/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
