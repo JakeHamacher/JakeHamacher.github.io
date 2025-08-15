@@ -22,7 +22,13 @@ class Video {
     }
 
     public function getAll() {
-        return $this->collection->find()->toArray();
+        try {
+            $videos = $this->collection->find()->toArray();
+            return $videos ?: [];
+        } catch (Exception $e) {
+            error_log('Error fetching videos: ' . $e->getMessage());
+            return [];
+        }
     }
 
     public function delete($id) {

@@ -24,7 +24,17 @@ class User {
     }
 
     public function findByEmail($email) {
-        return $this->collection->findOne(['email' => $email]);
+        $user = $this->collection->findOne(['email' => $email]);
+        if ($user) {
+            return [
+                '_id' => $user['_id'],
+                'email' => $user['email'],
+                'password' => $user['password'],
+                'isAdmin' => $user['isAdmin'] ?? false,
+                'createdAt' => $user['createdAt']
+            ];
+        }
+        return null;
     }
 
     public function verifyPassword($user, $password) {
