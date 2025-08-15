@@ -38,6 +38,56 @@
                 </div>
             </div>
         </section>
+        <!-- Video Gallery Section -->
+        <section class="video-gallery">
+            <div class="container">
+                <h2>Educational Videos</h2>
+                
+                <!-- Admin Form - would be hidden/shown based on admin login in production -->
+                <!--
+                <div class="video-admin">
+                    <h3>Add New Video</h3>
+                    <form id="videoAdminForm">
+                        <div class="form-group">
+                            <label for="videoUrl">YouTube URL</label>
+                            <input type="url" id="videoUrl" required placeholder="https://www.youtube.com/watch?v=...">
+                        </div>
+                        <div class="form-group">
+                            <label for="videoTitle">Title</label>
+                            <input type="text" id="videoTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="videoDescription">Description (optional)</label>
+                            <textarea id="videoDescription"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Add Video</button>
+                    </form>
+                </div>
+                -->
+
+                <div class="video-container">
+                    <!-- Example Video 1 -->
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                        <h3>Understanding Mortgage Basics</h3>
+                        <p>Learn the fundamentals of how mortgages work and what to expect during the process.</p>
+                    </div>
+                    
+                    <!-- Example Video 2 -->
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/0wq0W5h0_0w" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                        <h3>First-Time Homebuyer Tips</h3>
+                        <p>Essential advice for those purchasing their first home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div id="footer-placeholder"></div>
