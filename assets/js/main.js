@@ -186,56 +186,73 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    // Video Admin Interface
+    // Video Management System
     const videoAdminForm = document.getElementById('videoAdminForm');
     const loginForm = document.getElementById('loginForm');
-    const adminSection = document.querySelector('.video-admin');
     const logoutBtn = document.getElementById('logoutBtn');
+    const videoContainer = document.getElementById('video-container');
 
-    // Check if user is authenticated
+    // Check authentication status and update UI
     const checkAuth = async () => {
         try {
             const response = await fetch('/api/auth/check', {
                 credentials: 'include'
             });
-            const data = await response.json();
+            const { isAuthenticated, isAdmin } = await response.json();
             
-            if (data.isAuthenticated && data.isAdmin) {
-                adminSection.style.display = 'block';
-                if (logoutBtn) logoutBtn.style.display = 'block';
-            } else {
-                adminSection.style.display = 'none';
-                if (logoutBtn) logoutBtn.style.display = 'none';
-            }
+            // Toggle admin controls
+            const adminElements = document.querySelectorAll('.admin-only');
+            adminElements.forEach(el => {
+                el.style.display = isAuthenticated && isAdmin ? 'block' : 'none';
+            });
+
+            // Update login/logout buttons
+            if (loginForm) loginForm.style.display = isAuthenticated ? 'none' : 'block';
+            if (logoutBtn) logoutBtn.style.display = isAuthenticated ? 'block' : 'none';
+
+            return { isAuthenticated, isAdmin };
         } catch (err) {
             console.error('Auth check failed:', err);
+            return { isAuthenticated: false, isAdmin: false };
         }
     };
 
-    // Load videos from API
+    // Load and display videos from database
     const loadVideos = async () => {
         try {
             const response = await fetch('/api/videos');
             const videos = await response.json();
             
-            const container = document.querySelector('.video-container');
-            container.innerHTML = '';
+            videoContainer.innerHTML = '';
+            
+            const { isAdmin } = await checkAuth();
             
             videos.forEach(video => {
+                // Extract YouTube ID from URL if needed
+                let videoId = video.youtubeId;
+                if (video.youtubeId.includes('youtube.com')) {
+                    const url = new URL(video.youtubeId);
+                    videoId = url.searchParams.get('v') || video.youtubeId.split('/').pop();
+                }
+
                 const videoHTML = `
                     <div class="video-item" data-id="${video._id}">
-                        <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
+                        <iframe src="https://www.youtube.com/embed/${videoId}" 
                                 frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen></iframe>
-                        <h3>${video.title}</h3>
-                        ${video.description ? `<p>${video.description}</p>` : ''}
-                        <button class="btn btn-small delete-video">Delete</button>
+                        <div class="video-info">
+                            <h3>${video.title}</h3>
+                            ${video.description ? `<p>${video.description}</p>` : ''}
+                            ${isAdmin ? `<button class="btn btn-small delete-video">Delete</button>` : ''}
+                        </div>
                     </div>
                 `;
-                container.insertAdjacentHTML('beforeend', videoHTML);
+                videoContainer.insertAdjacentHTML('beforeend', videoHTML);
             });
         } catch (err) {
             console.error('Failed to load videos:', err);
+            videoContainer.innerHTML = '<p class="error">Failed to load videos. Please try again later.</p>';
         }
     };
 
