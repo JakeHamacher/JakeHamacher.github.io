@@ -1,14 +1,15 @@
 <?php
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 class DB {
     private static $instance = null;
-    private $manager;
+    private $db;
 
     private function __construct() {
-        $this->manager = new MongoDB\Driver\Manager(
-            getenv('MONGODB_URI') ?: 'mongodb://localhost:27017/integrity-loans'
+        $client = new MongoDB\Client(
+            getenv('MONGODB_URI') ?: 'mongodb://localhost:27017'
         );
+        $this->db = $client->selectDatabase('integrity-loans'); // DB name
     }
 
     public static function getInstance() {
@@ -18,7 +19,7 @@ class DB {
         return self::$instance;
     }
 
-    public function getManager() {
-        return $this->manager;
+    public function getDB() {
+        return $this->db;
     }
 }

@@ -1,38 +1,33 @@
 <?php
-require_once '../config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 class User {
-    private $collection = 'integrity-loans.users';
+    private $collection;
+
+    public function __construct() {
+        $db = DB::getInstance()->getDB();
+        $this->collection = $db->users; // High-level collection object
+    }
 
     public function create($email, $password, $isAdmin = false) {
-        $db = DB::getInstance()->getManager();
-        $bulk = new MongoDB\Driver\BulkWrite;
-        
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        
+
         $document = [
             'email' => $email,
             'password' => $hashedPassword,
             'isAdmin' => $isAdmin,
             'createdAt' => new MongoDB\BSON\UTCDateTime()
         ];
-        
-        $bulk->insert($document);
-        $db->executeBulkWrite($this->collection, $bulk);
-        
+
+        $this->collection->insertOne($document);
         return $document;
     }
 
     public function findByEmail($email) {
-        $db = DB::getInstance()->getManager();
-        $filter = ['email' => $email];
-        $query = new MongoDB\Driver\Query($filter);
-        
-        $cursor = $db->executeQuery($this->collection, $query);
-        return current($cursor->toArray());
+        return $this->collection->findOne(['email' => $email]);
     }
 
     public function verifyPassword($user, $password) {
-        return password_verify($password, $user->password);
+        return password_verify($password, $user['password']);
     }
 }
