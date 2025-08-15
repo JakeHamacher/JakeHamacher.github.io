@@ -186,4 +186,197 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+    // Video Admin Interface
+    const videoAdminForm = document.getElementById('videoAdminForm');
+    const loginForm = document.getElementById('loginForm');
+    const adminSection = document.querySelector('.video-admin');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Check if user is authenticated
+    const checkAuth = async () => {
+        try {
+            const response = await fetch('/api/auth/check', {
+                credentials: 'include'
+            });
+            const data = await response.json();
+            
+            if (data.isAuthenticated && data.isAdmin) {
+                adminSection.style.display = 'block';
+                if (logoutBtn) logoutBtn.style.display = 'block';
+            } else {
+                adminSection.style.display = 'none';
+                if (logoutBtn) logoutBtn.style.display = 'none';
+            }
+        } catch (err) {
+            console.error('Auth check failed:', err);
+        }
+    };
+
+    // Load videos from API
+    const loadVideos = async () => {
+        try {
+            const response = await fetch('/api/videos');
+            const videos = await response.json();
+            
+            const container = document.querySelector('.video-container');
+            container.innerHTML = '';
+            
+            videos.forEach(video => {
+                const videoHTML = `
+                    <div class="video-item" data-id="${video._id}">
+                        <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
+                                frameborder="0" 
+                                allowfullscreen></iframe>
+                        <h3>${video.title}</h3>
+                        ${video.description ? `<p>${video.description}</p>` : ''}
+                        <button class="btn btn-small delete-video">Delete</button>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', videoHTML);
+            });
+        } catch (err) {
+            console.error('Failed to load videos:', err);
+        }
+    };
+
+    // Handle video form submission
+    if (videoAdminForm) {
+        videoAdminForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const videoUrl = document.getElementById('videoUrl').value;
+            const videoTitle = document.getElementById('videoTitle').value;
+            const videoDescription = document.getElementById('videoDescription').value;
+            
+            if (!videoUrl || !videoTitle) {
+                alert('Please provide at least a URL and title');
+                return;
+            }
+
+            // Extract YouTube video ID
+            let videoId;
+            try {
+                const url = new URL(videoUrl);
+                videoId = url.searchParams.get('v');
+                if (!videoId) {
+                    // Handle youtu.be format
+                    videoId = url.pathname.split('/').pop();
+                }
+            } catch {
+                alert('Please enter a valid YouTube URL');
+                return;
+            }
+
+            if (!videoId) {
+                alert('Could not extract video ID from URL');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/videos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        title: videoTitle,
+                        description: videoDescription,
+                        youtubeId: videoId
+                    })
+                });
+
+                if (response.ok) {
+                    videoAdminForm.reset();
+                    await loadVideos();
+                } else {
+                    alert('Failed to add video');
+                }
+            } catch (err) {
+                console.error('Error adding video:', err);
+                alert('Error adding video');
+            }
+        });
+    }
+
+    // Handle login form
+    if (loginForm) {
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    await checkAuth();
+                    loginForm.reset();
+                    // Hide login modal if exists
+                    const loginModal = document.getElementById('loginModal');
+                    if (loginModal) loginModal.style.display = 'none';
+                } else {
+                    alert(data.message || 'Login failed');
+                }
+            } catch (err) {
+                console.error('Login error:', err);
+                alert('Login error');
+            }
+        });
+    }
+
+    // Handle logout
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async function() {
+            try {
+                await fetch('/api/auth/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                await checkAuth();
+            } catch (err) {
+                console.error('Logout error:', err);
+            }
+        });
+    }
+
+    // Handle video deletion
+    document.addEventListener('click', async function(e) {
+        if (e.target.classList.contains('delete-video')) {
+            if (confirm('Are you sure you want to delete this video?')) {
+                const videoItem = e.target.closest('.video-item');
+                const videoId = videoItem.dataset.id;
+                
+                try {
+                    const response = await fetch(`/api/videos/${videoId}`, {
+                        method: 'DELETE',
+                        credentials: 'include'
+                    });
+
+                    if (response.ok) {
+                        videoItem.remove();
+                    } else {
+                        alert('Failed to delete video');
+                    }
+                } catch (err) {
+                    console.error('Error deleting video:', err);
+                    alert('Error deleting video');
+                }
+            }
+        }
+    });
+
+    // Initialize
+    checkAuth();
+    loadVideos();
 });
