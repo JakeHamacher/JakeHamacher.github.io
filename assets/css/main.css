@@ -151,6 +151,10 @@ img {
     padding: 0;
 }
 
+.logo {
+    background-color: var(--white);
+}
+
 .logo img {
     height: 100px;
     width: auto;
