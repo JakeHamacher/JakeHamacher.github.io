@@ -186,6 +186,63 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+    // Testimonial Carousel
+    const initTestimonialCarousel = () => {
+        const testimonials = document.querySelectorAll('.testimonial');
+        const indicatorsContainer = document.querySelector('.carousel-indicators');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+        
+        if (testimonials.length === 0) return;
+        
+        // Create indicators
+        testimonials.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('carousel-indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => setActiveTestimonial(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+        
+        let currentIndex = 0;
+        
+        const setActiveTestimonial = (index) => {
+            // Update testimonials
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonials[index].classList.add('active');
+            
+            // Update indicators
+            document.querySelectorAll('.carousel-indicator').forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+            
+            currentIndex = index;
+        };
+        
+        // Navigation handlers
+        prevBtn.addEventListener('click', () => {
+            let newIndex = currentIndex - 1;
+            if (newIndex < 0) newIndex = testimonials.length - 1;
+            setActiveTestimonial(newIndex);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            let newIndex = currentIndex + 1;
+            if (newIndex >= testimonials.length) newIndex = 0;
+            setActiveTestimonial(newIndex);
+        });
+        
+        // Auto-rotate every 5 seconds
+        setInterval(() => {
+            let newIndex = currentIndex + 1;
+            if (newIndex >= testimonials.length) newIndex = 0;
+            setActiveTestimonial(newIndex);
+        }, 5000);
+    };
+
+    // Initialize testimonial carousel
+    initTestimonialCarousel();
+
     // Video Management System
     const videoAdminForm = document.getElementById('videoAdminForm');
     const loginForm = document.getElementById('loginForm');
