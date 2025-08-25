@@ -77,19 +77,17 @@
 <div id="footer-placeholder"></div>
 
 <script>
-    // Load header template
-    fetch('templates/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-        });
-
-    // Load footer template
-    fetch('templates/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        });
+    // Load header and footer templates
+    Promise.all([
+        fetch('templates/header.html').then(response => response.text()),
+        fetch('templates/footer.html').then(response => response.text())
+    ]).then(([headerData, footerData]) => {
+        // Insert header and footer
+        document.getElementById('header-placeholder').innerHTML = headerData;
+        document.getElementById('footer-placeholder').innerHTML = footerData;
+    }).catch(error => {
+        console.error('Error loading templates:', error);
+    });
 </script>
 
 <!-- Main scripts -->

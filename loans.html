@@ -62,32 +62,6 @@
         // Insert header and footer
         document.getElementById('header-placeholder').innerHTML = headerData;
         document.getElementById('footer-placeholder').innerHTML = footerData;
-        
-        // Re-initialize mobile menu after header is loaded
-        const initMobileMenu = () => {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const mainNav = document.querySelector('.main-nav');
-
-            if (mobileMenuToggle && mainNav) {
-                // Remove any existing event listeners to prevent duplicates
-                mobileMenuToggle.onclick = null;
-                
-                mobileMenuToggle.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    mainNav.classList.toggle('active');
-                    
-                    // Prevent body scroll when menu is open
-                    if (this.classList.contains('active')) {
-                        document.body.style.overflow = 'hidden';
-                    } else {
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-        };
-        
-        // Initialize mobile menu
-        initMobileMenu();
     }).catch(error => {
         console.error('Error loading templates:', error);
     });

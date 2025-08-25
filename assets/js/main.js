@@ -1,15 +1,19 @@
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize mobile menu toggle
+    // Function to initialize mobile menu
     const initMobileMenu = () => {
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const mainNav = document.querySelector('.main-nav');
 
         if (mobileMenuToggle && mainNav) {
             // Remove any existing event listeners to prevent duplicates
-            mobileMenuToggle.onclick = null;
+            const newMobileMenuToggle = mobileMenuToggle.cloneNode(true);
+            mobileMenuToggle.parentNode.replaceChild(newMobileMenuToggle, mobileMenuToggle);
             
-            mobileMenuToggle.addEventListener('click', function() {
+            // Get the new reference
+            const newToggle = document.querySelector('.mobile-menu-toggle');
+            
+            newToggle.addEventListener('click', function() {
                 this.classList.toggle('active');
                 mainNav.classList.toggle('active');
                 
@@ -23,8 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Initialize mobile menu
+    // Initialize mobile menu immediately
     initMobileMenu();
+    
+    // Re-initialize after a short delay to catch any dynamically loaded content
+    setTimeout(initMobileMenu, 100);
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
