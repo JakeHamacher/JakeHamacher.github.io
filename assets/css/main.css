@@ -609,9 +609,28 @@ img {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+}
+
+/* Ensure even number of cards per row by adjusting the grid layout */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .service-card {
@@ -622,7 +641,6 @@ img {
     transition: var(--transition);
     text-align: left;
     height: 100%;
-    margin: 2rem;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--gray-medium);
