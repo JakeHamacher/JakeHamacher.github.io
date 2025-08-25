@@ -1,89 +1,145 @@
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/main.css">
 <div id="header-placeholder"></div>
-    <main id="main-content">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Mortgage Calculators</h1>
-                    <p class="subtitle">Make informed decisions with our financial tools</p>
-                </div>
-            </div>
-        </section>
 
-        <section class="calculator-section">
-            <div class="container">
-                <div class="calculator-container">
-                    <div class="calculator-card">
-                        <h2>Monthly Payment Calculator</h2>
-                        <form id="paymentCalculator">
-                            <div class="form-group">
-                                <label for="loanAmount">Loan Amount ($)</label>
-                                <input type="number" id="loanAmount" min="0" step="1000" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="interestRate">Interest Rate (%)</label>
-                                <input type="number" id="interestRate" min="0" max="20" step="0.125" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="loanType">Loan Type</label>
-                                <select id="loanType">
-                                    <option value="fixed">Fixed Rate</option>
-                                    <option value="arm5">5/1 ARM</option>
-                                    <option value="arm7">7/1 ARM</option>
-                                    <option value="fha">FHA</option>
-                                    <option value="va">VA</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="loanTerm">Loan Term (years)</label>
-                                <input type="number" id="loanTerm" min="1" max="50" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="propertyTax">Annual Property Tax ($)</label>
-                                <input type="number" id="propertyTax" min="0" step="100">
-                            </div>
-                            <div class="form-group">
-                                <label for="homeInsurance">Annual Home Insurance ($)</label>
-                                <input type="number" id="homeInsurance" min="0" step="100">
-                            </div>
-                            <button type="submit" class="btn btn-large">Calculate Payment</button>
-                        </form>
-                        <div id="calculatorResult" class="calculator-result" aria-live="polite"></div>
-                    </div>
-                    <br>
-                    <div class="calculator-info">
-                        <div class="calculator-info-content">
-                            <h3>How It Works</h3>
-                            <p>Our calculator helps you estimate your monthly mortgage payment based on:</p>
-                            <ul>
-                                <li>Loan amount</li>
-                                <li>Interest rate</li>
-                                <li>Loan term</li>
-                                <li>Property taxes</li>
-                                <li>Home insurance</li>
-                            </ul>
-                            <div class="calculator-tip">
-                                <strong>Tip:</strong> For adjustable-rate mortgages (ARMs), the rate shown is the initial rate during the fixed period.
-                            </div>
-                            <p>For personalized advice, <a href="apply.html">apply for pre-approval</a> or call us at <strong>(571) 330-6269</strong>.</p>
+<main id="main-content">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mortgage Calculators</h1>
+                <p class="subtitle">Make informed decisions with our financial tools</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <h2>Monthly Payment Calculator</h2>
+                    <form id="paymentCalculator" novalidate>
+                        <div class="form-group">
+                            <label for="loanAmount">Loan Amount ($)</label>
+                            <input type="number" id="loanAmount" min="0" step="1000" required aria-label="Loan Amount in US dollars">
                         </div>
+                        <div class="form-group">
+                            <label for="interestRate">Interest Rate (%)</label>
+                            <input type="number" id="interestRate" min="0" max="20" step="0.125" required aria-label="Annual interest rate percentage">
+                        </div>
+                        <div class="form-group">
+                            <label for="loanType">Loan Type</label>
+                            <select id="loanType" aria-label="Loan type">
+                                <option value="fixed">Fixed Rate</option>
+                                <option value="arm5">5/1 ARM</option>
+                                <option value="arm7">7/1 ARM</option>
+                                <option value="fha">FHA</option>
+                                <option value="va">VA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="loanTerm">Loan Term (years)</label>
+                            <input type="number" id="loanTerm" min="1" max="50" required aria-label="Loan term in years">
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyTax">Annual Property Tax ($)</label>
+                            <input type="number" id="propertyTax" min="0" step="100" aria-label="Annual property tax in US dollars">
+                        </div>
+                        <div class="form-group">
+                            <label for="homeInsurance">Annual Home Insurance ($)</label>
+                            <input type="number" id="homeInsurance" min="0" step="100" aria-label="Annual home insurance in US dollars">
+                        </div>
+                        <button type="submit" class="btn btn-large">Calculate Payment</button>
+                    </form>
+                    <div id="calculatorResult" class="calculator-result" aria-live="polite"></div>
+                </div>
+                <br>
+                <div class="calculator-info">
+                    <div class="calculator-info-content">
+                        <h3>How It Works</h3>
+                        <p>Our calculator helps you estimate your monthly mortgage payment based on:</p>
+                        <ul>
+                            <li>Loan amount</li>
+                            <li>Interest rate</li>
+                            <li>Loan term</li>
+                            <li>Property taxes</li>
+                            <li>Home insurance</li>
+                        </ul>
+                        <div class="calculator-tip">
+                            <strong>Tip:</strong> For adjustable-rate mortgages (ARMs), the rate shown is the initial rate during the fixed period.
+                        </div>
+                        <p>For personalized advice, <a href="/apply/">apply for pre-approval</a> or call us at
+                            <strong>(571) 330-6269</strong>.
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <div id="footer-placeholder"></div>
+<div id="footer-placeholder"></div>
 
-    <script>
-        fetch('/templates/header.html')
+<script>
+    fetch('../templates/header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
         });
-        fetch('/templates/footer.html')
+
+    fetch('../templates/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
-    </script>
+</script>
+
+<script src="/assets/js/calculator.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('paymentCalculator');
+    const resultDiv = document.getElementById('calculatorResult');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Read values
+        const loanAmountRaw = document.getElementById('loanAmount').value;
+        const interestRateRaw = document.getElementById('interestRate').value;
+        const yearsRaw = document.getElementById('loanTerm').value;
+        const propertyTaxRaw = document.getElementById('propertyTax').value;
+        const homeInsuranceRaw = document.getElementById('homeInsurance').value;
+
+        console.log({loanAmountRaw, interestRateRaw, yearsRaw, propertyTaxRaw, homeInsuranceRaw});
+
+        const loanAmount = parseFloat(loanAmountRaw);
+        const interestRate = parseFloat(interestRateRaw) / 100;
+        const years = parseInt(yearsRaw);
+        const propertyTax = parseFloat(propertyTaxRaw) || 0;
+        const homeInsurance = parseFloat(homeInsuranceRaw) || 0;
+
+        console.log({loanAmount, interestRate, years, propertyTax, homeInsurance});
+
+        // Validate
+        if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(years) || loanAmount <= 0 || years <= 0) {
+            resultDiv.textContent = '⚠ Please enter valid numbers for loan, rate, and term.';
+            return;
+        }
+
+        // Calculate
+        const monthlyRate = interestRate / 12;
+        const months = years * 12;
+
+        let monthlyPayment;
+        if (monthlyRate === 0) {
+            monthlyPayment = loanAmount / months;
+        } else {
+            monthlyPayment = loanAmount * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+        }
+
+        const totalMonthly = monthlyPayment + (propertyTax / 12) + (homeInsurance / 12);
+
+        console.log({monthlyPayment, totalMonthly});
+
+        resultDiv.textContent = `Estimated Monthly Payment: $${totalMonthly.toFixed(2)}`;
+    });
+});
+</script>

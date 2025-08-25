@@ -182,7 +182,7 @@ img {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/hero-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg') no-repeat center center/cover;
     color: var(--white);
     padding: 8rem 0 6rem;
     text-align: center;
@@ -749,24 +749,34 @@ img {
 
 /* Calculator Section */
 .calculator-section {
-  padding: 4rem 1rem;
-  width: 100%;
+    padding: 4rem 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Added to center vertically in viewport */
 }
 
 .calculator-container {
     display: grid;
+    justify-content: center; /* center grid items horizontally */
+    align-content: center;   /* center vertically if smaller than container */
     grid-template-columns: 1fr;
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: auto;
 }
+
 
 @media (min-width: 992px) {
     .calculator-container {
         grid-template-columns: 1fr 1fr;
+        width: auto; /* Added to give some margin on larger screens */
     }
 }
 
+/* Rest of the code remains the same */
 .calculator-card {
     background: var(--white);
     padding: 2.5rem;
