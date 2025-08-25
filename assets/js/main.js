@@ -230,16 +230,25 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentIndex = 0;
         
         const setActiveTestimonial = (index) => {
-            // Update testimonials
-            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-            testimonials[index].classList.add('active');
+            // Mark current active testimonial as previous
+            testimonials[currentIndex].classList.add('prev');
+            testimonials[currentIndex].classList.remove('active');
             
-            // Update indicators
-            document.querySelectorAll('.carousel-indicator').forEach((indicator, i) => {
-                indicator.classList.toggle('active', i === index);
-            });
-            
+            // Update current index
             currentIndex = index;
+            
+            // Add active class to new testimonial
+            setTimeout(() => {
+                testimonials.forEach(testimonial => {
+                    testimonial.classList.remove('prev');
+                });
+                testimonials[currentIndex].classList.add('active');
+                
+                // Update indicators
+                document.querySelectorAll('.carousel-indicator').forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === currentIndex);
+                });
+            }, 50);
         };
         
         // Navigation handlers
