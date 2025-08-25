@@ -233,11 +233,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Auto-rotate every 5 seconds
-        setInterval(() => {
+        let autoRotateTimer;
+        
+        const startAutoRotate = () => {
+            clearInterval(autoRotateTimer);
+            autoRotateTimer = setInterval(() => {
             let newIndex = currentIndex + 1;
             if (newIndex >= testimonials.length) newIndex = 0;
             setActiveTestimonial(newIndex);
-        }, 5000);
+            }, 9000);
+        };
+
+        // Start initial timer
+        startAutoRotate();
+
+        // Reset timer on user interaction
+        prevBtn.addEventListener('click', startAutoRotate);
+        nextBtn.addEventListener('click', startAutoRotate);
+        document.querySelectorAll('.carousel-indicator').forEach(indicator => {
+            indicator.addEventListener('click', startAutoRotate);
+        });
     };
 
     // Initialize testimonial carousel
