@@ -27,6 +27,9 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--white);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -110,6 +113,8 @@ img {
     top: 0;
     z-index: 1000;
     width: 100%;
+    left: 0;
+    right: 0;
 }
 
 .header {
@@ -118,6 +123,9 @@ img {
     width: 100%;
     padding: 0;
     opacity: 0.95;
+    margin: 0;
+    left: 0;
+    right: 0;
 }
 
 .header .container {
@@ -125,20 +133,26 @@ img {
     justify-content: space-between;
     align-items: center;
     height: 100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 1200px;
 }
 
 .logo a {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
-    margin: auto;
+    margin: 0;
     color: var(--primary-color);
+    display: block;
+    padding: 0;
 }
 
 .logo img {
     height: 100px;
     width: auto;
     display: block;
+    margin: 0;
 }
 
 .main-nav ul {
