@@ -506,14 +506,25 @@ img {
 .testimonial-carousel {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    height: 250px;
 }
 
 .testimonial {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
     background-color: var(--white);
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     margin: 0 1rem;
+}
+
+.testimonial.active {
+    opacity: 1;
 }
 
 .testimonial-content {
@@ -537,6 +548,47 @@ img {
 .client-location {
     color: var(--text-light);
     font-size: 0.9rem;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.carousel-prev, .carousel-next {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: var(--primary-dark);
+}
+
+.carousel-indicators {
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gray-medium);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-indicator.active {
+    background: var(--primary-color);
 }
 
 .team-position {
