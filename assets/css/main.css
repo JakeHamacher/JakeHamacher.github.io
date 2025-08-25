@@ -1,11 +1,11 @@
 /* Base Styles */
 :root {
-    --primary-color: #0056b3;
-    --primary-dark: #003d82;
+    --primary-color: #103e6f;
+    --primary-dark: #0e3057;
     --primary-light: #3a7fb8;
     --secondary-color: #f8f9fa;
-    --accent-color: #ff6b35;
-    --accent-dark: #e05a2b;
+    --accent-color: #807c43;
+    --accent-dark: #7c723e;
     --text-color: #333;
     --text-light: #6c757d;
     --white: #fff;
@@ -125,6 +125,12 @@ img {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    display: block;
 }
 
 .main-nav ul {
