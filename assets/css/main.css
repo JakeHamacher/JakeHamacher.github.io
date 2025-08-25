@@ -507,22 +507,21 @@ img {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
-    height: 250px;
 }
 
 .testimonial {
-    position: absolute;
-    width: calc(100% - 2rem); /* Account for the container's padding */
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    display: none;
+    width: 100%;
     background-color: var(--white);
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    transition: opacity 0.5s ease;
+}
+
+.testimonial.active {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
 }
 
 .testimonial.active {
