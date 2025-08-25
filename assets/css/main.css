@@ -831,6 +831,7 @@ img {
     .calculator-container {
         grid-template-columns: 1fr 1fr;
         align-items: start;
+        gap: 2rem;
     }
 }
 
@@ -838,6 +839,14 @@ img {
 .calculator-info {
     width: 100%;
     max-width: 500px;
+    height: 100%;
+}
+
+@media (min-width: 992px) {
+    .calculator-card,
+    .calculator-info {
+        max-width: none;
+    }
 }
 
 /* Rest of the code remains the same */
