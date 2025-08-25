@@ -751,29 +751,32 @@ img {
 .calculator-section {
     padding: 4rem 1rem;
     width: 100%;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Added to center vertically in viewport */
 }
 
 .calculator-container {
     display: grid;
-    justify-content: center; /* center grid items horizontally */
-    align-content: center;   /* center vertically if smaller than container */
     grid-template-columns: 1fr;
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
-    width: auto;
+    width: 100%;
+    justify-items: center;
 }
-
 
 @media (min-width: 992px) {
     .calculator-container {
         grid-template-columns: 1fr 1fr;
-        width: auto; /* Added to give some margin on larger screens */
+        align-items: start;
     }
+}
+
+.calculator-card,
+.calculator-info {
+    width: 100%;
+    max-width: 500px;
 }
 
 /* Rest of the code remains the same */

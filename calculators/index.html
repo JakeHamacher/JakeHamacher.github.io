@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 <div id="header-placeholder"></div>
 
 <main id="main-content">
@@ -79,13 +79,13 @@
 <div id="footer-placeholder"></div>
 
 <script>
-    fetch('../templates/header.html')
+    fetch('/templates/header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
         });
 
-    fetch('../templates/footer.html')
+    fetch('/templates/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
