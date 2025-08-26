@@ -2,28 +2,31 @@
 require_once __DIR__ . '/../config/db.php';
 
 class Video {
-    private $collection;
+    private $pdo;
 
     public function __construct() {
-        $db = DB::getInstance()->getDB();
-        $this->collection = $db->videos; // High-level collection object
+        $this->pdo = DB::getInstance()->getDB();
     }
 
     public function create($title, $youtubeId, $description = '') {
-        $document = [
+        $createdAt = date('Y-m-d H:i:s');
+        
+        $stmt = $this->pdo->prepare("INSERT INTO videos (title, youtubeId, description, createdAt) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$title, $youtubeId, $description, $createdAt]);
+        
+        return [
+            'id' => $this->pdo->lastInsertId(),
             'title' => $title,
-            'description' => $description,
             'youtubeId' => $youtubeId,
-            'createdAt' => new MongoDB\BSON\UTCDateTime()
+            'description' => $description,
+            'createdAt' => $createdAt
         ];
-
-        $this->collection->insertOne($document);
-        return $document;
     }
 
     public function getAll() {
         try {
-            $videos = $this->collection->find()->toArray();
+            $stmt = $this->pdo->query("SELECT * FROM videos ORDER BY createdAt DESC");
+            $videos = $stmt->fetchAll();
             return $videos ?: [];
         } catch (Exception $e) {
             error_log('Error fetching videos: ' . $e->getMessage());
@@ -32,6 +35,7 @@ class Video {
     }
 
     public function delete($id) {
-        $this->collection->deleteOne(['_id' => new MongoDB\BSON\ObjectId($id)]);
+        $stmt = $this->pdo->prepare("DELETE FROM videos WHERE id = ?");
+        $stmt->execute([$id]);
     }
 }
