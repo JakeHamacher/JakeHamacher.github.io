@@ -2,18 +2,26 @@
 
 class DB {
     private static $instance = null;
-    private $db;
+    private $pdo;
 
     private function __construct() {
         try {
-            $client = new MongoDB\Client(
-                getenv('MONGODB_URI') ?: 'mongodb://localhost:27017',
-                [
-                    'connectTimeoutMS' => 3000,
-                    'socketTimeoutMS' => 5000
-                ]
-            );
-            $this->db = $client->selectDatabase('integrity-loans');
+            // Get environment variables or use defaults
+            $host = getenv('MYSQL_HOST') ?: 'localhost';
+            $dbname = getenv('MYSQL_DATABASE') ?: 'integrity-loans';
+            $username = getenv('MYSQL_USERNAME') ?: 'root';
+            $password = getenv('MYSQL_PASSWORD') ?: '';
+            $port = getenv('MYSQL_PORT') ?: '3306';
+            $charset = 'utf8mb4';
+            
+            $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset";
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ];
+            
+            $this->pdo = new PDO($dsn, $username, $password, $options);
         } catch (Exception $e) {
             error_log('Database connection failed: ' . $e->getMessage());
             throw $e;
@@ -28,6 +36,6 @@ class DB {
     }
 
     public function getDB() {
-        return $this->db;
+        return $this->pdo;
     }
 }
