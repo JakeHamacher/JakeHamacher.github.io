@@ -111,9 +111,12 @@ $videos = $videoModel->getAll();
                         <input type="text" id="title" name="title" required style="padding: 0.75rem; border: 1px solid var(--gray-medium); border-radius: var(--border-radius);">
                     </div>
                     <div style="display: flex; flex-direction: column;">
-                        <label for="youtubeId" style="margin-bottom: 0.5rem; font-weight: 600;">YouTube ID</label>
-                        <input type="text" id="youtubeId" name="youtubeId" required style="padding: 0.75rem; border: 1px solid var(--gray-medium); border-radius: var(--border-radius);">
-                        <small style="color: var(--text-light); margin-top: 0.25rem;">The ID is the part after "v=" in the YouTube URL</small>
+                        <label for="youtubeId" style="margin-bottom: 0.5rem; font-weight: 600;">YouTube URL</label>
+                        <input type="url" id="youtubeId" name="youtubeId" required 
+                            pattern="^https?:\/\/(www\.)?youtube\.com\/watch\?v=.*|^https?:\/\/youtu\.be\/.*"
+                            placeholder="https://www.youtube.com/watch?v=..."
+                            style="padding: 0.75rem; border: 1px solid var(--gray-medium); border-radius: var(--border-radius);">
+                        <small style="color: var(--text-light); margin-top: 0.25rem;">Enter the full YouTube video URL</small>
                     </div>
                     <div style="display: flex; flex-direction: column;">
                         <label for="description" style="margin-bottom: 0.5rem; font-weight: 600;">Description (Optional)</label>
