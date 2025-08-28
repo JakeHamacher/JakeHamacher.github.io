@@ -49,7 +49,7 @@ $videos = $videoModel->getAll();
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <?php include 'templates/header.php'; ?>
 
     <section class="hero">
         <div class="container">
@@ -126,27 +126,6 @@ $videos = $videoModel->getAll();
     </section>
     <?php endif; ?>
 
-    <div id="footer-placeholder"></div>
-
-    <script>
-        // Load header and footer
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('templates/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                    // Re-initialize mobile menu
-                    if (typeof initMobileMenu === 'function') {
-                        initMobileMenu();
-                    }
-                });
-
-            fetch('templates/footer.php')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                });
-        });
-    </script>
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>

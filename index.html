@@ -152,7 +152,7 @@
     // Load header and footer templates
     Promise.all([
         fetch('templates/header.html').then(response => response.text()),
-        fetch('templates/footer.html').then(response => response.text())
+        fetch('templates/footer.php').then(response => response.text())
     ]).then(([headerData, footerData]) => {
         // Insert header and footer
         document.getElementById('header-placeholder').innerHTML = headerData;
