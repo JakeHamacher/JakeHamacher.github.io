@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $isAdmin) {
         
         if (!empty($title) && !empty($youtubeUrl)) {
             // Extract YouTube ID from URL
-            $youtubeId = $this->extractYoutubeId($youtubeUrl);
+            $youtubeId = extractYoutubeId($youtubeUrl);
             if ($youtubeId) {
                 $video = new Video();
                 $video->create($title, $youtubeId, $description);
