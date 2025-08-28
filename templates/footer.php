@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Check if session is already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $isLoggedIn = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 ?>
 <footer class="footer">
