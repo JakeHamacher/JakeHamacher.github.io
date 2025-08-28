@@ -22,17 +22,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $isAdmin) {
     // Handle adding new video
     else {
         $title = $_POST['title'] ?? '';
-        $youtubeId = $_POST['youtubeId'] ?? '';
+        $youtubeUrl = $_POST['youtubeId'] ?? '';
         $description = $_POST['description'] ?? '';
         
-        if (!empty($title) && !empty($youtubeId)) {
-            $video = new Video();
-            $video->create($title, $youtubeId, $description);
-            // Redirect to prevent form resubmission
-            header('Location: ' . $_SERVER['PHP_SELF']);
-            exit();
+        if (!empty($title) && !empty($youtubeUrl)) {
+            // Extract YouTube ID from URL
+            $youtubeId = $this->extractYoutubeId($youtubeUrl);
+            if ($youtubeId) {
+                $video = new Video();
+                $video->create($title, $youtubeId, $description);
+                // Redirect to prevent form resubmission
+                header('Location: ' . $_SERVER['PHP_SELF']);
+                exit();
+            } else {
+                // Handle invalid YouTube URL
+                // You might want to set an error message here
+            }
         }
     }
+}
+
+// Function to extract YouTube ID from URL
+function extractYoutubeId($url) {
+    $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/';
+    preg_match($pattern, $url, $matches);
+    return $matches[1] ?? null;
 }
 
 // Get all videos
