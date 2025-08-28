@@ -73,7 +73,7 @@
                         <div class="calculator-tip">
                             <strong>Tip:</strong> For adjustable-rate mortgages (ARMs), the rate shown is the initial rate during the fixed period.
                         </div>
-                        <p>For personalized advice, <a href="/apply.html">apply for pre-approval</a> or <a href="https://calendly.com/justin-hamacher-nrse/"><strong>meet with us.</strong></a>
+                        <p>For personalized advice, <a href="/apply.html">Get Pre-Approved</a> or <a href="https://calendly.com/justin-hamacher-nrse/"><strong>meet with us.</strong></a>
                         </p>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
 <script>
     // Load header and footer templates
     Promise.all([
-        fetch('templates/header.html').then(response => response.text()),
+        fetch('templates/header.php').then(response => response.text()),
         fetch('templates/footer.html').then(response => response.text())
     ]).then(([headerData, footerData]) => {
         // Insert header and footer

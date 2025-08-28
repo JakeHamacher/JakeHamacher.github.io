@@ -1,0 +1,27 @@
+services:
+  app:
+    image: php:8.2-apache
+    # No host port mapping needed for Cloudflared
+    # ports: ["80:80"]  # optional if you want local access
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: flappybob2
+      DB_NAME: integrity_loans
+
+  db:
+    image: mariadb:10.4
+    environment:
+      MYSQL_ROOT_PASSWORD: flappybob2
+      MYSQL_DATABASE: integrity_loans
+    volumes:
+      - db_data:/var/lib/mysql
+    # Do not expose DB to public
+    ports: []
+
+volumes:
+  db_data:

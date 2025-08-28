@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="assets/css/main.css">
+<div id="header-placeholder"></div>
+
+    <main id="main-content">
+        <!-- Services Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Mortgage Solutions for Every Need</h1>
+                    <p class="subtitle">Find the perfect loan program for your situation with our expert guidance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchase Loans -->
+        <section class="services-overview" id="purchase">
+            <div class="container">
+                <h2>Home Purchase Loans</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Conventional Loans</h3>
+                        <p>Traditional mortgage options with competitive rates and flexible terms.</p>
+                        <ul>
+                            <li>Fixed-rate and adjustable options</li>
+                            <li>Down payments as low as 3%</li>
+                            <li>Loan terms from 10-30 years</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>First-Time Buyers</h3>
+                        <p>Special programs designed for those purchasing their first home.</p>
+                        <ul>
+                            <li>Low down payment options</li>
+                            <li>Down payment assistance</li>
+                            <li>Educational resources</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Refinance Loans -->
+        <section class="value-prop" id="refinance">
+            <div class="container">
+                <h2>Refinance Options</h2>
+                <div class="value-grid">
+                    <div class="value-item">
+                        <h3>Rate &amp; Term Refinance</h3>
+                        <p>Lower your interest rate or change your loan term to save money.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Cash-Out Refinance</h3>
+                        <p>Access your home's equity for renovations, debt consolidation, or other needs.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>FHA Streamline</h3>
+                        <p>Simplified refinancing for existing FHA loans with reduced paperwork.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Programs -->
+        <section class="testimonials" id="special-programs">
+            <div class="container">
+                <h2>Special Loan Programs</h2>
+                <div class="services-grid">
+                    <div class="service-card" id="fha">
+                        <h3>FHA Loans</h3>
+                        <p>Government-backed loans with flexible credit requirements.</p>
+                        <ul>
+                            <li>Low down payments (3.5%)</li>
+                            <li>Higher debt-to-income ratios allowed</li>
+                            <li>For primary residences only</li>
+                        </ul>
+                    </div>
+                    <div class="service-card" id="va">
+                        <h3>VA Loans</h3>
+                        <p>Exclusive benefits for veterans and active military.</p>
+                        <ul>
+                            <li>No down payment required</li>
+                            <li>No private mortgage insurance</li>
+                            <li>Competitive interest rates</li>
+                        </ul>
+                    </div>
+                    <div class="service-card" id="jumbo">
+                        <h3>Jumbo Loans</h3>
+                        <p>Financing for high-value properties above conventional limits.</p>
+                        <ul>
+                            <li>Flexible underwriting</li>
+                            <li>Competitive jumbo rates</li>
+                            <li>Custom solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+
+<script>
+    fetch('templates/header.php')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+
+    fetch('templates/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+<script src="./assets/js/main.js"></script>

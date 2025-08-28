@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="assets/css/main.css">
+<div id="header-placeholder"></div>
+    <main id="main-content">
+        <!-- Application Hero -->
+        <section class="hero hero-apply">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Coming Soon!</h1>
+                    <p class="subtitle">Hang tight, this feature is on the way...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+<script>
+    fetch('templates/header.php')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+
+    fetch('templates/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+<script src="./assets/js/main.js"></script>

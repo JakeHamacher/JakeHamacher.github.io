@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="assets/css/main.css">
+<div id="header-placeholder"></div>
+
+<body>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <div id="header-placeholder"></div>
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Homebuyer Resources</h1>
+                    <p class="subtitle">Knowledge to guide your homeownership journey</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources-section">
+            <!-- <div class="container">
+                <div class="resources-grid">
+                    <article class="service-card">
+                        <h3>First-Time Homebuyer Guide</h3>
+                        <p>Everything you need to know about buying your first home, from saving for a down payment to closing day.</p>
+                        <a href="#" class="btn btn-small">Read Guide</a>
+                    </article>
+                    <article class="service-card">
+                        <h3>Understanding Credit Scores</h3>
+                        <p>Learn how credit scores impact mortgage rates and what you can do to improve yours.</p>
+                        <a href="#" class="btn btn-small">Learn More</a>
+                    </article>
+                    <article class="service-card">
+                        <h3>Mortgage Glossary</h3>
+                        <p>Confused by mortgage terms? Our comprehensive glossary explains all the industry jargon.</p>
+                        <a href="#" class="btn btn-small">View Terms</a>
+                    </article>
+                    <article class="service-card">
+                        <h3>Refinancing Explained</h3>
+                        <p>Discover when refinancing makes sense and how to determine if it's right for you.</p>
+                        <a href="#" class="btn btn-small">Read Article</a>
+                    </article>
+                </div>
+            </div> -->
+        </section>
+        <!-- Video Gallery Section -->
+        <section class="video-gallery">
+            <div class="container">
+
+                <div class="video-admin">
+                    <h3>Add New Video</h3>
+                    <form id="videoAdminForm">
+                        <div class="form-group">
+                            <label for="videoUrl">YouTube Video URL</label>
+                            <input type="url" id="videoUrl" required 
+                                   pattern="^https?:\/\/(www\.)?youtube\.com\/watch\?v=.+|^https?:\/\/youtu\.be\/.+"
+                                   placeholder="Enter YouTube video URL"
+                                   oninvalid="this.setCustomValidity('Please enter a valid YouTube URL')"
+                                   oninput="this.setCustomValidity('')">
+                        </div>
+                        <div class="form-group">
+                            <label for="videoTitle">Title</label>
+                            <input type="text" id="videoTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="videoDescription">Description (optional)</label>
+                            <textarea id="videoDescription"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Add Video</button>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('templates/header.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('templates/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+    <script src="./assets/js/main.js"></script>

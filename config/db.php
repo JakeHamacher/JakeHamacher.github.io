@@ -38,4 +38,8 @@ class DB {
     public function getDB() {
         return $this->pdo;
     }
+
+    public function getPDO() {
+        return $this->pdo;
+    }
 }

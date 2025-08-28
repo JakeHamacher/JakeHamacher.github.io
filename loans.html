@@ -56,7 +56,7 @@
 <script>
     // Load header and footer templates
     Promise.all([
-        fetch('templates/header.html').then(response => response.text()),
+        fetch('templates/header.php').then(response => response.text()),
         fetch('templates/footer.html').then(response => response.text())
     ]).then(([headerData, footerData]) => {
         // Insert header and footer

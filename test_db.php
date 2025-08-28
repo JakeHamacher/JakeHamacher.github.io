@@ -20,8 +20,8 @@ try {
     
     // Optionally create a default admin user
     $userModel = new User();
-    $adminEmail = 'admin@example.com';
-    $adminPassword = 'password123';
+    $adminEmail = 'justin@integrityfirsthomeloans.com';
+    $adminPassword = 'Justin.IFHL.2025pw';
     
     // Check if admin exists
     $existingAdmin = $userModel->findByEmail($adminEmail);
@@ -36,4 +36,3 @@ try {
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
-?>
