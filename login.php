@@ -18,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $user['email'];
             $_SESSION['is_admin'] = $user['isAdmin'];
             
+            // Set a cookie that JavaScript can read
+            setcookie('is_logged_in', '1', 0, '/');
+            
             // Redirect to resources page
             header('Location: resources.php');
             exit();
