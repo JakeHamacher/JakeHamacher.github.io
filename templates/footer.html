@@ -1,3 +1,7 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
+?>
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
@@ -20,8 +24,11 @@
                     <li><a href="./loans.html">Loan Options</a></li>
                     <li><a href="./calculators.html">Calculators</a></li>
                     <li><a href="./resources.php">Resources</a></li>
-                    <li id="login-link"><a href="./login.php">Login</a></li>
-                    <li id="logout-link" style="display: none;"><a href="./logout.php">Logout</a></li>
+                    <?php if ($isLoggedIn): ?>
+                        <li><a href="./logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="./login.php">Login</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <!-- <div class="footer-col">
@@ -38,21 +45,4 @@
             <p>&copy; 2025 Integrity First Home Loans. All rights reserved. | NMLS #2743268 | Equal Housing Lender</p>
         </div>
     </div>
-    <script>
-        // Check if user is logged in by checking the cookie
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-        
-        const isLoggedIn = getCookie('is_logged_in') === '1';
-        if (isLoggedIn) {
-            document.getElementById('login-link').style.display = 'none';
-            document.getElementById('logout-link').style.display = 'list-item';
-        } else {
-            document.getElementById('login-link').style.display = 'list-item';
-            document.getElementById('logout-link').style.display = 'none';
-        }
-    </script>
 </footer>

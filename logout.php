@@ -1,8 +1,10 @@
 <?php
 session_start();
+// Unset all session variables
+$_SESSION = array();
+// Destroy the session
 session_destroy();
-// Clear the login cookie
-setcookie('is_logged_in', '', time() - 3600, '/');
+// Redirect to home page
 header('Location: index.html');
 exit();
 ?>

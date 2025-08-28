@@ -141,7 +141,7 @@ $videos = $videoModel->getAll();
                     }
                 });
 
-            fetch('templates/footer.html')
+            fetch('templates/footer.php')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;

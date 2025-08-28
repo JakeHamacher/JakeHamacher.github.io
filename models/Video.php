@@ -35,7 +35,13 @@ class Video {
     }
 
     public function delete($id) {
-        $stmt = $this->pdo->prepare("DELETE FROM videos WHERE id = ?");
-        $stmt->execute([$id]);
+        try {
+            $stmt = $this->pdo->prepare("DELETE FROM videos WHERE id = ?");
+            $stmt->execute([$id]);
+            return $stmt->rowCount() > 0;
+        } catch (Exception $e) {
+            error_log('Error deleting video: ' . $e->getMessage());
+            return false;
+        }
     }
 }
