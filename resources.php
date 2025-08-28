@@ -6,18 +6,32 @@ require_once 'models/Video.php';
 // Check if user is logged in and is admin
 $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 
-// Handle form submission (only if admin)
+// Handle form submission for adding videos (only if admin)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $isAdmin) {
-    $title = $_POST['title'] ?? '';
-    $youtubeId = $_POST['youtubeId'] ?? '';
-    $description = $_POST['description'] ?? '';
-    
-    if (!empty($title) && !empty($youtubeId)) {
-        $video = new Video();
-        $video->create($title, $youtubeId, $description);
-        // Redirect to prevent form resubmission
-        header('Location: ' . $_SERVER['PHP_SELF']);
-        exit();
+    // Check if it's a delete request
+    if (isset($_POST['delete_video'])) {
+        $videoId = $_POST['video_id'] ?? '';
+        if (!empty($videoId)) {
+            $video = new Video();
+            $video->delete($videoId);
+            // Redirect to prevent form resubmission
+            header('Location: ' . $_SERVER['PHP_SELF']);
+            exit();
+        }
+    }
+    // Handle adding new video
+    else {
+        $title = $_POST['title'] ?? '';
+        $youtubeId = $_POST['youtubeId'] ?? '';
+        $description = $_POST['description'] ?? '';
+        
+        if (!empty($title) && !empty($youtubeId)) {
+            $video = new Video();
+            $video->create($title, $youtubeId, $description);
+            // Redirect to prevent form resubmission
+            header('Location: ' . $_SERVER['PHP_SELF']);
+            exit();
+        }
     }
 }
 
@@ -52,7 +66,16 @@ $videos = $videoModel->getAll();
             <div class="videos-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
                 <?php if (!empty($videos)): ?>
                     <?php foreach ($videos as $video): ?>
-                        <div class="video-card" style="background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+                        <div class="video-card" style="background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; position: relative;">
+                            <?php if ($isAdmin): ?>
+                            <form method="POST" style="position: absolute; top: 10px; right: 10px; z-index: 10;">
+                                <input type="hidden" name="video_id" value="<?= $video['id'] ?>">
+                                <button type="submit" name="delete_video" onclick="return confirm('Are you sure you want to delete this video?')" 
+                                        style="background: #dc3545; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 14px;">
+                                    &times;
+                                </button>
+                            </form>
+                            <?php endif; ?>
                             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                                 <iframe 
                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
